@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import props from '../utils/props';
 import { sizes, colors } from '../constants';
 

@@ -8,20 +8,20 @@ function defineClassNames(component, props) {
         for (const prop of props) {
             const value = this.props[prop.name];
             if (value) {
-                if (prop.type == 'bool') {
+                if (prop.type === 'bool') {
                     classes.push({[prop.name]: value});
-                } else if (prop.type == 'string') {
+                } else if (prop.type === 'string') {
                     classes.push(value);
-                } else if (prop.type == 'oneOf') {
+                } else if (prop.type === 'oneOf') {
                     classes.push({
                         [prop.name]: !prop.compact,
-                        [value]: !prop.default || value != prop.default
+                        [value]: !prop.default || value !== prop.default
                     });
                 }
             }
         }
         return classNames(classes);
-    }
+    };
 }
 
 function propWrapper(props) {
@@ -45,27 +45,36 @@ function propWrapper(props) {
         }
         return component;
     }
-    wrapper.props = props || [];
-    for (const type of ['bool', 'string', 'oneOf', 'func']) {
-        wrapper[type] = (name, ...args) => {
+
+    function addProp(type) {
+        return (name, ...args) => {
             let prop = {type: type, name: name};
             if (args.length) {
                 prop.args = args;
             }
             return propWrapper(wrapper.props.concat(prop));
-        }
+        };
     }
-    let modifyLast = (key, value) => {
-        let modified = _.clone(wrapper.props);
-        modified[wrapper.props.length - 1][key] = value;
-        return propWrapper(modified);
-    };
+
+    function modifyLast(key, value) {
+        return arg => {
+            let modified = _.clone(wrapper.props);
+            modified[wrapper.props.length - 1][key] = value || arg;
+            return propWrapper(modified);
+        };
+    }
+
+    wrapper.props = props || [];
+    for (const type of ['bool', 'string', 'oneOf', 'func']) {
+        wrapper[type] = addProp(type);
+    }
     for (const key of ['default']) {
-        wrapper[key] = value => modifyLast(key, value);
+        wrapper[key] = modifyLast(key);
     }
     for (const key of ['compact']) {
-        wrapper[key] = () => modifyLast(key, true);
+        wrapper[key] = modifyLast(key, true);
     }
+
     return wrapper;
 }
 
