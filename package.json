@@ -18,6 +18,14 @@
   ],
   "author": "Ivan Smirnov",
   "email": "i.s.smirnov@gmail.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldanor/semantic-ui-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aldanor/semantic-ui-react/issues"
+  },
+  "homepage": "https://github.com/aldanor/semantic-ui-react",
   "license": "(MIT OR Apache-2.0)",
   "devDependencies": {
     "babel": "^5.8.23",
