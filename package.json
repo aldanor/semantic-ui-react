@@ -4,7 +4,8 @@
   "description": "React components for Semantic UI",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --opts ./test/mocha.opts",
+    "coverage": "./node_modules/.bin/babel-node ./node_modules/.bin/isparta cover _mocha"
   },
   "keywords": [
     "semantic-ui",
