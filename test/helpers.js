@@ -5,8 +5,8 @@ import React from 'react/addons';
 const { TestUtils } = React.addons;
 
 function render(component, ...args) {
-    let props = undefined, children = undefined;
-    if (args.length == 1) {
+    let props, children;
+    if (args.length === 1) {
         if (_.isArray(args[0]) || !_.isObject(args[0])) {
             children = args[0];
         } else {
@@ -16,7 +16,7 @@ function render(component, ...args) {
         props = args[0];
         children = args[1];
     }
-    if (children && children.length == 1) {
+    if (children && children.length === 1) {
         children = children[0];
     }
     props = props || {};
@@ -39,7 +39,7 @@ Assertion.addMethod('class', function(className) {
         );
     } else {
         this.assert(
-            _.intersection(classesObj, classesArg).length == classesArg.length,
+            _.intersection(classesObj, classesArg).length === classesArg.length,
             'expected #{this} to contain class #{exp}',
             'expected #{this} to not contain class #{exp}',
             classesArg.join(' '),
@@ -62,6 +62,6 @@ Assertion.addMethod('type', function(type) {
         'expected #{this} to be of type #{exp} but got #{act}',
         'expected #{this} to not be of type #{exp}'
     );
-})
+});
 
 export default { expect, React, TestUtils, render };
