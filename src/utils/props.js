@@ -24,7 +24,6 @@ function defineClassNames(component, props) {
     }
 }
 
-
 function propWrapper(props) {
     function wrapper(component) {
         if (!props || !props.length) {
