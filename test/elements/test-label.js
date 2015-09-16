@@ -53,6 +53,7 @@ describe('Label', () => {
 
     it('floating', () => {
         expect.label({floating: true}).to.have.class('ui floating label');
+        expect.label({floating: true, color: 'red'}).to.have.class('ui floating red label');
     });
 
     it('corner', () => {

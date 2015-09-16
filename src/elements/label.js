@@ -3,6 +3,7 @@ import props from '../utils/props';
 import { sizes, colors } from '../constants';
 
 @props
+    .bool('floating')
     .oneOf('size', sizes)
         .compact()
     .oneOf('color', colors)
@@ -13,7 +14,6 @@ import { sizes, colors } from '../constants';
     .bool('circular')
     .bool('tag')
     .bool('horizontal')
-    .bool('floating')
     .oneOf('ribbon', ['right'])
         .optional()
         .postfix()
