@@ -3,8 +3,10 @@ import props from '../utils/props';
 import { sizes, colors } from '../constants';
 
 @props
+    .bool('basic')
     .oneOf('size', sizes).compact()
     .oneOf('color', colors).compact()
+    .bool('inverted')
     .bool('icon')
     .bool('href')
     .bool('circular')

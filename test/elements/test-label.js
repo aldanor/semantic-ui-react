@@ -20,6 +20,16 @@ describe('Label', () => {
         expect.label(['foo', 'bar']).to.have.children(['foo', 'bar']);
     });
 
+    it('basic', () => {
+        expect.label({basic: true}).to.have.class('ui basic label');
+        expect.label({basic: true, color: 'red'}).to.have.class('ui basic red label');
+    });
+
+    it('inverted', () => {
+        expect.label({inverted: true}).to.have.class('ui inverted label');
+        expect.label({inverted: true, color: 'red'}).to.have.class('ui red inverted label');
+    });
+
     it('tag', () => {
         expect.label({tag: true}).to.have.class('ui tag label');
         expect.label({tag: true, color: 'red'}).to.have.class('ui red tag label');
