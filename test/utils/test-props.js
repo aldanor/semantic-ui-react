@@ -56,6 +56,12 @@ describe('props', () => {
         ]);
     });
 
+    it('optional', () => {
+        expect(props.oneOf('foo', ['bar', 'baz']).optional().props).to.deep.equal([
+            {type: 'oneOf', name: 'foo', args: [['bar', 'baz']], optional: true}
+        ]);
+    })
+
     it('compact', () => {
         expect(props.bool('foo').compact().props).to.deep.equal([
             {type: 'bool', name: 'foo', compact: true}

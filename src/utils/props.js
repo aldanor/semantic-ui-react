@@ -15,7 +15,7 @@ function defineClassNames(component, props) {
                 } else if (prop.type === 'oneOf') {
                     classes.push({
                         [prop.name]: !prop.compact,
-                        [value]: !prop.default || value !== prop.default
+                        [value]: value !== true && (!prop.default || value !== prop.default)
                     });
                 }
             }
@@ -36,6 +36,9 @@ function propWrapper(props) {
             let propTypes = React.PropTypes[prop.type];
             if (prop.args && prop.args.length) {
                 propTypes = propTypes(...prop.args);
+            }
+            if (prop.optional) {
+                propTypes = React.PropTypes.oneOfType([React.PropTypes.bool, propTypes]);
             }
             component.propTypes[prop.name] = propTypes;
 
@@ -71,7 +74,7 @@ function propWrapper(props) {
     for (const key of ['default']) {
         wrapper[key] = modifyLast(key);
     }
-    for (const key of ['compact']) {
+    for (const key of ['compact', 'optional']) {
         wrapper[key] = modifyLast(key, true);
     }
 

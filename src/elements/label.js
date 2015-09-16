@@ -9,7 +9,7 @@ import { sizes, colors } from '../constants';
     .bool('tag')
     .bool('horizontal')
     .bool('floating')
-    .bool('ribbon')
+    .oneOf('ribbon', ['right']).optional()
     .oneOf('pointing', ['above', 'below', 'left', 'right']).default('above')
     .oneOf('corner', ['left', 'right'])
     .oneOf('attached', ['top', 'bottom', 'left', 'right'])
