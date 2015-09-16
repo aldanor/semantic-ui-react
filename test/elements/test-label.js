@@ -25,7 +25,7 @@ describe('Label', () => {
     });
 
     it('ribbon', () => {
-        expect.label({ribbon: 'right'}).to.have.class('ui label ribbon right');
+        expect.label({ribbon: 'right'}).to.have.class('ui label right ribbon');
         expect.label({ribbon: true}).to.have.class('ui label ribbon');
         expect.label({ribbon: false}).to.have.class('ui label');
     });

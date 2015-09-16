@@ -13,10 +13,17 @@ function defineClassNames(component, props) {
                 } else if (prop.type === 'string') {
                     classes.push(value);
                 } else if (prop.type === 'oneOf') {
-                    classes.push({
-                        [prop.name]: !prop.compact,
-                        [value]: value !== true && (!prop.default || value !== prop.default)
-                    });
+                    if (!prop.postfix) {
+                        classes.push(
+                            {[prop.name]: !prop.compact},
+                            {[value]: value !== true && (!prop.default || value !== prop.default)}
+                        );
+                    } else {
+                        classes.push(
+                            {[value]: value !== true && (!prop.default || value !== prop.default)},
+                            {[prop.name]: !prop.compact}
+                        );
+                    }
                 }
             }
         }
@@ -74,7 +81,7 @@ function propWrapper(props) {
     for (const key of ['default']) {
         wrapper[key] = modifyLast(key);
     }
-    for (const key of ['compact', 'optional']) {
+    for (const key of ['compact', 'optional', 'postfix']) {
         wrapper[key] = modifyLast(key, true);
     }
 
