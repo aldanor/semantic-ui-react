@@ -10,7 +10,7 @@ import { sizes, colors } from '../constants';
     .bool('horizontal')
     .bool('floating')
     .oneOf('ribbon', ['right']).optional()
-    .oneOf('pointing', ['above', 'below', 'left', 'right']).default('above')
+    .oneOf('pointing', ['below', 'left', 'right']).optional()
     .oneOf('corner', ['left', 'right'])
     .oneOf('attached', ['top', 'bottom', 'left', 'right'])
     .oneOf('size', sizes).compact()

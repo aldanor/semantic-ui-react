@@ -27,6 +27,7 @@ describe('Label', () => {
     it('ribbon', () => {
         expect.label({ribbon: 'right'}).to.have.class('ui label ribbon right');
         expect.label({ribbon: true}).to.have.class('ui label ribbon');
+        expect.label({ribbon: false}).to.have.class('ui label');
     });
 
     it('horizontal', () => {
@@ -47,7 +48,8 @@ describe('Label', () => {
     });
 
     it('pointing', () => {
-        expect.label({pointing: 'above'}).to.have.class('ui label pointing');
+        expect.label({pointing: true}).to.have.class('ui label pointing');
+        expect.label({pointing: false}).to.have.class('ui label');
         expect.label({pointing: 'below'}).to.have.class('ui label pointing below');
         expect.label({pointing: 'left'}).to.have.class('ui label pointing left');
         expect.label({pointing: 'right'}).to.have.class('ui label pointing right');
