@@ -3,6 +3,8 @@ import props from '../utils/props';
 import { sizes, colors } from '../constants';
 
 @props
+    .oneOf('size', sizes).compact()
+    .oneOf('color', colors).compact()
     .bool('icon')
     .bool('href')
     .bool('circular')
@@ -13,8 +15,6 @@ import { sizes, colors } from '../constants';
     .oneOf('pointing', ['below', 'left', 'right']).optional()
     .oneOf('corner', ['left', 'right']).postfix()
     .oneOf('attached', ['top', 'bottom', 'left', 'right'])
-    .oneOf('size', sizes).compact()
-    .oneOf('color', colors).compact()
     .func('onClick')
     .string('className')
 class Label extends React.Component {

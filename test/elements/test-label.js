@@ -22,6 +22,7 @@ describe('Label', () => {
 
     it('tag', () => {
         expect.label({tag: true}).to.have.class('ui tag label');
+        expect.label({tag: true, color: 'red'}).to.have.class('ui red tag label');
     });
 
     it('ribbon', () => {
@@ -32,10 +33,12 @@ describe('Label', () => {
 
     it('horizontal', () => {
         expect.label({horizontal: true}).to.have.class('ui horizontal label');
+        expect.label({horizontal: true, color: 'red'}).to.have.class('ui red horizontal label');
     });
 
     it('circular', () => {
         expect.label({circular: true}).to.have.class('ui circular label');
+        expect.label({circular: true, color: 'red'}).to.have.class('ui red circular label');
     });
 
     it('floating', () => {
