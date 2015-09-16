@@ -91,4 +91,12 @@ describe('Label', () => {
             expect.label({color}).to.have.class(`ui ${color} label`);
         }
     });
+
+    it('href', () => {
+        expect.label({href: '#'}).to.have.type('a');
+    });
+
+    it('onClick', () => {
+        expect.label({onClick: () => []}).to.have.type('a');
+    });
 });

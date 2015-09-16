@@ -10,7 +10,6 @@ import { sizes, colors } from '../constants';
         .compact()
     .bool('inverted')
     .bool('icon')
-    .bool('href')
     .bool('circular')
     .bool('tag')
     .bool('horizontal')
@@ -25,11 +24,11 @@ import { sizes, colors } from '../constants';
         .postfix()
     .oneOf('attached', ['top', 'bottom', 'top right', 'top left', 'bottom right', 'bottom left'])
         .postfix()
-    .func('onClick')
     .bool('basic')
 class Label extends React.Component {
     render() {
-        return <div className={this.classNames('ui', 'label')}>{this.props.children}</div>;
+        let element = (this.props.onClick || this.props.href) ? 'a' : 'div';
+        return this.renderElement('ui', 'label', element, this.props.children);
     }
 }
 
