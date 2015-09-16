@@ -16,7 +16,8 @@ import { sizes, colors } from '../constants';
     .oneOf('ribbon', ['right']).optional().postfix()
     .oneOf('pointing', ['below', 'left', 'right']).optional()
     .oneOf('corner', ['left', 'right']).postfix()
-    .oneOf('attached', ['top', 'bottom', 'left', 'right'])
+    .oneOf('attached', ['top', 'bottom', 'top right', 'top left',
+                        'bottom right', 'bottom left']).postfix()
     .func('onClick')
     .string('className')
 class Label extends React.Component {

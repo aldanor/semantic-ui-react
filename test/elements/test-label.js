@@ -69,10 +69,12 @@ describe('Label', () => {
     });
 
     it('attached', () => {
-        expect.label({attached: 'top'}).to.have.class('ui attached top label');
-        expect.label({attached: 'bottom'}).to.have.class('ui attached bottom label');
-        expect.label({attached: 'left'}).to.have.class('ui attached left label');
-        expect.label({attached: 'right'}).to.have.class('ui attached right label');
+        expect.label({attached: 'top'}).to.have.class('ui top attached label');
+        expect.label({attached: 'bottom'}).to.have.class('ui bottom attached label');
+        expect.label({attached: 'top left'}).to.have.class('ui top left attached label');
+        expect.label({attached: 'top right'}).to.have.class('ui top right attached label');
+        expect.label({attached: 'bottom left'}).to.have.class('ui bottom left attached label');
+        expect.label({attached: 'bottom right'}).to.have.class('ui bottom right attached label');
     });
 
     it('size', () => {
