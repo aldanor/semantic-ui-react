@@ -6,7 +6,10 @@ function defineClassNames(props) {
     return (component, prefix, suffix) => {
         let classes = prefix ? [prefix] : [];
         for (const prop of props) {
-            const value = component.props[prop.name];
+            let value = component.props[prop.name];
+            if (prop.alias && prop.alias.hasOwnProperty(value)) {
+                value = prop.alias[value];
+            }
             if (value) {
                 if (prop.type === 'bool') {
                     classes.push({[prop.name]: value});
@@ -48,7 +51,16 @@ function propWrapper(props) {
                 propTypes = propTypes(...prop.args);
             }
             if (prop.optional) {
-                propTypes = React.PropTypes.oneOfType([React.PropTypes.bool, propTypes]);
+                propTypes = React.PropTypes.oneOfType([
+                    React.PropTypes.bool,
+                    propTypes
+                ]);
+            }
+            if (prop.alias) {
+                propTypes = React.PropTypes.oneOfType([
+                    React.PropTypes.oneOf(_.keys(prop.alias)),
+                    propTypes
+                ]);
             }
             component.propTypes[prop.name] = propTypes;
 
@@ -84,7 +96,7 @@ function propWrapper(props) {
     for (const type of ['bool', 'string', 'oneOf', 'func']) {
         wrapper[type] = addProp(type);
     }
-    for (const key of ['default']) {
+    for (const key of ['default', 'alias']) {
         wrapper[key] = modifyLast(key);
     }
     for (const key of ['compact', 'optional', 'postfix']) {

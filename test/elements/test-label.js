@@ -62,10 +62,12 @@ describe('Label', () => {
 
     it('pointing', () => {
         expect.label({pointing: true}).to.have.class('ui pointing label');
+        expect.label({pointing: 'above'}).to.have.class('ui pointing label');
         expect.label({pointing: false}).to.have.class('ui label');
-        expect.label({pointing: 'below'}).to.have.class('ui pointing below label');
-        expect.label({pointing: 'left'}).to.have.class('ui pointing left label');
-        expect.label({pointing: 'right'}).to.have.class('ui pointing right label');
+        expect.label({pointing: 'bottom'}).to.have.class('ui bottom pointing label');
+        expect.label({pointing: 'below'}).to.have.class('ui bottom pointing label');
+        expect.label({pointing: 'left'}).to.have.class('ui left pointing label');
+        expect.label({pointing: 'right'}).to.have.class('ui right pointing label');
     });
 
     it('attached', () => {

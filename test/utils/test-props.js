@@ -56,6 +56,12 @@ describe('props', () => {
         ]);
     });
 
+    it('alias', () => {
+        expect(props.bool('foo').alias({bar: 'baz'}).props).to.deep.equal([
+            {type: 'bool', name: 'foo', alias: {bar: 'baz'}}
+        ]);
+    });
+
     it('optional', () => {
         expect(props.oneOf('foo', ['bar', 'baz']).optional().props).to.deep.equal([
             {type: 'oneOf', name: 'foo', args: [['bar', 'baz']], optional: true}
