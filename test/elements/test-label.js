@@ -12,7 +12,7 @@ describe('Label', () => {
     });
 
     it('className', () => {
-        expect.label({className: 'foo bar'}).to.have.class('ui label foo bar');
+        expect.label({className: 'foo bar'}).to.have.class('ui foo bar label');
     });
 
     it('content', () => {
@@ -21,56 +21,56 @@ describe('Label', () => {
     });
 
     it('tag', () => {
-        expect.label({tag: true}).to.have.class('ui label tag');
+        expect.label({tag: true}).to.have.class('ui tag label');
     });
 
     it('ribbon', () => {
-        expect.label({ribbon: 'right'}).to.have.class('ui label right ribbon');
-        expect.label({ribbon: true}).to.have.class('ui label ribbon');
+        expect.label({ribbon: 'right'}).to.have.class('ui right ribbon label');
+        expect.label({ribbon: true}).to.have.class('ui ribbon label');
         expect.label({ribbon: false}).to.have.class('ui label');
     });
 
     it('horizontal', () => {
-        expect.label({horizontal: true}).to.have.class('ui label horizontal');
+        expect.label({horizontal: true}).to.have.class('ui horizontal label');
     });
 
     it('circular', () => {
-        expect.label({circular: true}).to.have.class('ui label circular');
+        expect.label({circular: true}).to.have.class('ui circular label');
     });
 
     it('floating', () => {
-        expect.label({floating: true}).to.have.class('ui label floating');
+        expect.label({floating: true}).to.have.class('ui floating label');
     });
 
     it('corner', () => {
-        expect.label({corner: 'right'}).to.have.class('ui label right corner');
-        expect.label({corner: 'left'}).to.have.class('ui label left corner');
+        expect.label({corner: 'right'}).to.have.class('ui right corner label');
+        expect.label({corner: 'left'}).to.have.class('ui left corner label');
     });
 
     it('pointing', () => {
-        expect.label({pointing: true}).to.have.class('ui label pointing');
+        expect.label({pointing: true}).to.have.class('ui pointing label');
         expect.label({pointing: false}).to.have.class('ui label');
-        expect.label({pointing: 'below'}).to.have.class('ui label pointing below');
-        expect.label({pointing: 'left'}).to.have.class('ui label pointing left');
-        expect.label({pointing: 'right'}).to.have.class('ui label pointing right');
+        expect.label({pointing: 'below'}).to.have.class('ui pointing below label');
+        expect.label({pointing: 'left'}).to.have.class('ui pointing left label');
+        expect.label({pointing: 'right'}).to.have.class('ui pointing right label');
     });
 
     it('attached', () => {
-        expect.label({attached: 'top'}).to.have.class('ui label attached top');
-        expect.label({attached: 'bottom'}).to.have.class('ui label attached bottom');
-        expect.label({attached: 'left'}).to.have.class('ui label attached left');
-        expect.label({attached: 'right'}).to.have.class('ui label attached right');
+        expect.label({attached: 'top'}).to.have.class('ui attached top label');
+        expect.label({attached: 'bottom'}).to.have.class('ui attached bottom label');
+        expect.label({attached: 'left'}).to.have.class('ui attached left label');
+        expect.label({attached: 'right'}).to.have.class('ui attached right label');
     });
 
     it('size', () => {
         for (const size of sizes) {
-            expect.label({size}).to.have.class('ui label ' + size);
+            expect.label({size}).to.have.class(`ui ${size} label`);
         }
     });
 
     it('color', () => {
         for (const color of colors) {
-            expect.label({color}).to.have.class('ui label ' + color);
+            expect.label({color}).to.have.class(`ui ${color} label`);
         }
     });
 });

@@ -3,8 +3,8 @@ import _ from 'underscore';
 import classNames from 'classnames';
 
 function defineClassNames(component, props) {
-    component.prototype.classNames = function(base) {
-        let classes = base ? [base] : [];
+    component.prototype.classNames = function(prefix, suffix) {
+        let classes = prefix ? [prefix] : [];
         for (const prop of props) {
             const value = this.props[prop.name];
             if (value) {
@@ -26,6 +26,9 @@ function defineClassNames(component, props) {
                     }
                 }
             }
+        }
+        if (suffix) {
+            classes.push(suffix);
         }
         return classNames(classes);
     };

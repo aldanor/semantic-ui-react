@@ -19,7 +19,7 @@ import { sizes, colors } from '../constants';
     .string('className')
 class Label extends React.Component {
     render() {
-        return <div className={this.classNames('ui label')}>{this.props.children}</div>;
+        return <div className={this.classNames('ui', 'label')}>{this.props.children}</div>;
     }
 }
 
