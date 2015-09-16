@@ -3,7 +3,6 @@ import props from '../utils/props';
 import { sizes, colors } from '../constants';
 
 @props
-    .bool('basic')
     .oneOf('size', sizes).compact()
     .oneOf('color', colors).compact()
     .bool('inverted')
@@ -20,6 +19,7 @@ import { sizes, colors } from '../constants';
                         'bottom right', 'bottom left']).postfix()
     .func('onClick')
     .string('className')
+    .bool('basic')
 class Label extends React.Component {
     render() {
         return <div className={this.classNames('ui', 'label')}>{this.props.children}</div>;

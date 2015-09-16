@@ -22,7 +22,7 @@ describe('Label', () => {
 
     it('basic', () => {
         expect.label({basic: true}).to.have.class('ui basic label');
-        expect.label({basic: true, color: 'red'}).to.have.class('ui basic red label');
+        expect.label({basic: true, color: 'red'}).to.have.class('ui red basic label');
     });
 
     it('inverted', () => {
