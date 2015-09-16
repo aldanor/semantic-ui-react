@@ -26,8 +26,8 @@ function render(component, ...args) {
 }
 
 Assertion.addMethod('class', function(className) {
-    const classesArg = classNames(className).split(' ').sort();
-    const classesObj = classNames(this._obj.props.className).split(' ').sort();
+    const classesArg = classNames(className).split(' ');
+    const classesObj = classNames(this._obj.props.className).split(' ');
 
     if (!util.flag(this, 'contains')) {
         this.assert(
