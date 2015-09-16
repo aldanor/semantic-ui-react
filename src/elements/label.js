@@ -26,7 +26,6 @@ import { sizes, colors } from '../constants';
     .oneOf('attached', ['top', 'bottom', 'top right', 'top left', 'bottom right', 'bottom left'])
         .postfix()
     .func('onClick')
-    .string('className')
     .bool('basic')
 class Label extends React.Component {
     render() {

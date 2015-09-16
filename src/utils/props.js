@@ -4,7 +4,10 @@ import classNames from 'classnames';
 
 function defineClassNames(props) {
     return (component, prefix, suffix) => {
-        let classes = prefix ? [prefix] : [];
+        let classes = component.props.className ? [component.props.className] : [];
+        if (prefix) {
+            classes.push(prefix);
+        }
         for (const prop of props) {
             let value = component.props[prop.name];
             if (prop.alias && prop.alias.hasOwnProperty(value)) {
