@@ -12,7 +12,7 @@ describe('Label', () => {
     });
 
     it('className', () => {
-        expect.label({className: 'foo bar'}).to.have.class('ui foo bar label');
+        expect.label({color: 'red', className: 'foo bar'}).to.have.class('foo bar ui red label');
     });
 
     it('content', () => {
