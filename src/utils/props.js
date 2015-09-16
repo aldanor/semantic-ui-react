@@ -2,11 +2,11 @@ import React from 'react';
 import _ from 'underscore';
 import classNames from 'classnames';
 
-function defineClassNames(component, props) {
-    component.prototype.classNames = function(prefix, suffix) {
+function defineClassNames(props) {
+    return (component, prefix, suffix) => {
         let classes = prefix ? [prefix] : [];
         for (const prop of props) {
-            const value = this.props[prop.name];
+            const value = component.props[prop.name];
             if (value) {
                 if (prop.type === 'bool') {
                     classes.push({[prop.name]: value});
@@ -54,7 +54,10 @@ function propWrapper(props) {
 
         }
         if (component.prototype) {
-            defineClassNames(component, props);
+            let method = defineClassNames(props);
+            component.prototype.classNames = function(prefix, suffix) {
+                return method(this, prefix, suffix);
+            };
         }
         return component;
     }
