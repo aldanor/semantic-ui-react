@@ -73,6 +73,12 @@ function propWrapper(props) {
             component.prototype.classNames = function(prefix, suffix) {
                 return method(this, prefix, suffix);
             };
+            const propNames = props.map(p => p.name);
+            component.prototype.renderElement = function(prefix, suffix, element, children) {
+                let elementProps = _.omit(this.props, propNames);
+                elementProps.className = this.classNames(prefix, suffix);
+                return React.createElement(element, elementProps, children);
+            };
         }
         return component;
     }
