@@ -64,4 +64,13 @@ Assertion.addMethod('type', function(type) {
     );
 });
 
+Assertion.addMethod('props', function(props) {
+    this.assert(
+        _.isEqual(_.omit(props, 'children', 'className'),
+                  _.omit(this._obj.props, 'children', 'className')),
+        'expected #{this} to have props #{exp} but got #{act}',
+        'expected #{this} to not have props #{exp}'
+    );
+});
+
 export default { expect, React, TestUtils, render };
