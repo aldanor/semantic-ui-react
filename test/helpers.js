@@ -49,11 +49,19 @@ Assertion.addMethod('class', function(className) {
 });
 
 Assertion.addMethod('children', function(children) {
-    this.assert(
-        _.isEqual(children, this._obj.props.children),
-        'expected #{this} to have children #{exp} but got #{act}',
-        'expected #{this} to not have children #{exp}'
-    );
+    if (!util.flag(this, 'negate')) {
+        this.assert(
+            _.isEqual(children, this._obj.props.children),
+            'expected #{this} to have children #{exp} but got #{act}',
+            'expected #{this} to not have children #{exp}'
+        );
+    } else {
+        this.assert(
+            !_.isUndefined(this._obj.props.children),
+            'expected #{this} to not have children',
+            'expected #{this} to have children'
+        );
+    }
 });
 
 Assertion.addMethod('type', function(type) {
