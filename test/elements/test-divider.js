@@ -14,7 +14,7 @@ describe('Divider', () => {
 
     it('className', () => {
         expect.divider({fitted: true, className: 'foo bar'})
-            .to.have.class('foo bar ui fitted divider');
+            .to.have.class('ui fitted divider foo bar');
     });
 
 

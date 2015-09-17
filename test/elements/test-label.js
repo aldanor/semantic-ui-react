@@ -15,7 +15,7 @@ describe('Label', () => {
 
     it('className', () => {
         expect.label({color: 'red', className: 'foo bar'})
-            .to.have.class('foo bar ui red label');
+            .to.have.class('ui red label foo bar');
     });
 
 

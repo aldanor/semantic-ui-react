@@ -14,7 +14,7 @@ describe('Flag', () => {
 
     it('className', () => {
         expect.flag({country: 'ie', className: 'foo bar'})
-            .to.have.class('foo bar ie flag');
+            .to.have.class('ie flag foo bar');
     });
 
     it('props', () => {

@@ -15,7 +15,7 @@ describe('Icon', () => {
 
     it('className', () => {
         expect.icon({name: 'users', className: 'foo bar'})
-            .to.have.class('foo bar users icon');
+            .to.have.class('users icon foo bar');
     });
 
 
