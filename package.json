@@ -38,7 +38,8 @@
     "mocha": "^2.3.2",
     "mocha-babel": "^3.0.0",
     "node-jsdom": "^3.1.5",
-    "react": "^0.13.3",
+    "react": "^0.14.0-rc1",
+    "react-addons-test-utils": "^0.14.0-rc1",
     "underscore": "^1.8.3"
   }
 }

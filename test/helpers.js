@@ -1,8 +1,8 @@
 import _ from 'underscore';
 import classNames from 'classnames/dedupe';
 import { expect, Assertion, util } from 'chai';
-import React from 'react/addons';
-const { TestUtils } = React.addons;
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 
 function render(component, ...args) {
     let props, children;
