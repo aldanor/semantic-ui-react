@@ -6,9 +6,10 @@ expect.label = (...args) => expect(render(Label, ...args));
 
 describe('Label', () => {
     it('default', () => {
-        expect.label().to.have.type('div');
-        expect.label().to.have.class('ui label');
-        expect.label().to.have.children();
+        expect.label().to.have.type('div')
+                      .and.have.class('ui label')
+                      .and.have.props({})
+                      .and.have.children();
     });
 
     it('className', () => {
@@ -98,5 +99,10 @@ describe('Label', () => {
 
     it('onClick', () => {
         expect.label({onClick: () => []}).to.have.type('a');
+    });
+
+    it('props', () => {
+        expect.label({foo: 'bar', color: 'red'}).to.have.class('ui red label')
+                                                .and.have.props({foo: 'bar'});
     });
 });
