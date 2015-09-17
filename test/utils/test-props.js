@@ -68,9 +68,9 @@ describe('props', () => {
         ]);
     });
 
-    it('compact', () => {
-        expect(props.bool('foo').compact().props).to.deep.equal([
-            {type: 'bool', name: 'foo', compact: true}
+    it('inline', () => {
+        expect(props.bool('foo').inline().props).to.deep.equal([
+            {type: 'bool', name: 'foo', inline: true}
         ]);
     });
 });
