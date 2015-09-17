@@ -16,6 +16,12 @@ describe('Label', () => {
         expect.label({color: 'red', className: 'foo bar'}).to.have.class('foo bar ui red label');
     });
 
+
+    it('props', () => {
+        expect.label({foo: 'bar', color: 'red'}).to.have.class('ui red label')
+                                                .and.have.props({foo: 'bar'});
+    });
+
     it('content', () => {
         expect.label('foo').to.have.children('foo');
         expect.label(['foo', 'bar']).to.have.children(['foo', 'bar']);
@@ -24,6 +30,10 @@ describe('Label', () => {
     it('basic', () => {
         expect.label({basic: true}).to.have.class('ui basic label');
         expect.label({basic: true, color: 'red'}).to.have.class('ui red basic label');
+    });
+
+    it('hidden', () => {
+        expect.label({hidden: true}).to.have.class('ui hidden label');
     });
 
     it('inverted', () => {
@@ -99,10 +109,5 @@ describe('Label', () => {
 
     it('onClick', () => {
         expect.label({onClick: () => []}).to.have.type('a');
-    });
-
-    it('props', () => {
-        expect.label({foo: 'bar', color: 'red'}).to.have.class('ui red label')
-                                                .and.have.props({foo: 'bar'});
     });
 });

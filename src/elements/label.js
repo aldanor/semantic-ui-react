@@ -3,6 +3,7 @@ import props from '../utils/props';
 import { sizes, colors } from '../constants';
 
 @props
+    .bool('hidden')
     .bool('floating')
     .oneOf('size', sizes)
         .compact()
