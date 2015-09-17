@@ -11,7 +11,7 @@ import { colors } from '../constants';
     .oneOf('aligned', ['left', 'right'])
         .postfix()
     .oneOf('color', colors)
-        .compact()
+        .inline()
     .bool('raised')
     .oneOf('stacked', ['tall'])
         .optional()
