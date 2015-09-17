@@ -1,5 +1,9 @@
+import Divider from './elements/divider';
 import Label from './elements/label';
+import Segment from './elements/segment';
 
 export default {
-    Label
+    Divider,
+    Label,
+    Segment
 };
