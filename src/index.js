@@ -1,4 +1,4 @@
-import * as elements from './elements';
+import elements from './elements';
 
 export default {
     elements
