@@ -1,4 +1,4 @@
-import Icon from '../../src/elements/icon';
+import { Icon } from '../../src/elements';
 import { expect, render } from '../helpers';
 import { sizes, colors } from '../../src/constants';
 

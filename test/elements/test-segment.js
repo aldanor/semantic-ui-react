@@ -1,4 +1,4 @@
-import Segment from '../../src/elements/segment';
+import { Segment } from '../../src/elements';
 import { expect, render } from '../helpers';
 import { colors } from '../../src/constants';
 

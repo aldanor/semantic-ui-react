@@ -1,4 +1,4 @@
-import Divider from '../../src/elements/divider';
+import { Divider } from '../../src/elements';
 import { expect, render } from '../helpers';
 
 expect.divider = (...args) => expect(render(Divider, ...args));

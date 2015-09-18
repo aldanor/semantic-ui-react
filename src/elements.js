@@ -1,5 +1,13 @@
-export * from './elements/divider';
-export * from './elements/flag';
-export * from './elements/icon';
-export * from './elements/label';
-export * from './elements/segment';
+import Divider from './elements/divider';
+import Flag from './elements/flag';
+import Icon from './elements/icon';
+import Label from './elements/label';
+import Segment from './elements/segment';
+
+export default {
+    Divider,
+    Flag,
+    Icon,
+    Label,
+    Segment
+};

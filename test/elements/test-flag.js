@@ -1,4 +1,4 @@
-import Flag from '../../src/elements/flag';
+import { Flag } from '../../src/elements';
 import { expect, render } from '../helpers';
 
 expect.flag = (...args) => expect(render(Flag, ...args));
